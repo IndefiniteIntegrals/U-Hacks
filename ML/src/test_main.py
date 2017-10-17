@@ -64,9 +64,9 @@ def get_diff_vacancy(vacancy):
 def database_entries(table_name, same, prob):
 	table = db[table_name]
 	if same:
-		entry = {'recmail' : prob[0], 'prob' : float(prob[1][0][0]), 'similar' : 'y', 'comp_name' : get_name(prob[0])}
+		entry = {'recmail' : prob[0], 'prob' : float("{:.2f}".format(prob[1][0][0])), 'similar' : 'y', 'comp_name' : get_name(prob[0])}
 	else:
-		entry = {'recmail' : prob[0], 'prob' : float(prob[1][0][0]), 'similar' : 'n', 'comp_name' : get_name(prob[0])}
+		entry = {'recmail' : prob[0], 'prob' : float("{:.2f}".format(prob[1][0][0])), 'similar' : 'n', 'comp_name' : get_name(prob[0])}
 
 	try :
 		table.insert_one(entry)
